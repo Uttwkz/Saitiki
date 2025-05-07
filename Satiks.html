@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <title>Информационные ресурсы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --gray: #6c757d;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+
+        .container {
+            padding: 2rem 2rem 2rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: 2rem;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            overflow-y: auto;
+        }
+
+        .nav-card h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+/* Для заголовков h2 в навигации убираем линию */
+.nav-card h2::after {
+    content: none; /* Убираем линию */
+}
+
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            display: block;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 2rem 0;
+            background: linear-gradient(to right, #4361ee, #3a0ca3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #4361ee, #3a0ca3);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        h2 {
+    padding: 0 1rem; /* чтобы заголовок и линия были с одинаковым отступом по краям */
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 100%; /* линия будет занимать 60% от ширины контейнера */
+    height: 3px;
+    margin-top: 0.5rem; /* отступ сверху */
+    background: linear-gradient(to right, #4361ee, #3a0ca3);
+    border-radius: 3px;
+}
+
+
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-top: 1.5rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        main a:hover {
+            color: var(--warning);
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate.delay-1 { animation-delay: 0.2s; }
+        .animate.delay-2 { animation-delay: 0.4s; }
+        .animate.delay-3 { animation-delay: 0.6s; }
+        .animate.delay-4 { animation-delay: 0.8s; }
+        .animate.delay-5 { animation-delay: 1.0s; }
+        .animate.delay-6 { animation-delay: 1.2s; }
+        .animate.delay-7 { animation-delay: 1.4s; }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .badge-primary {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-secondary {
+            background: rgba(248, 81, 133, 0.1);
+            color: var(--warning);
+        }
+
+        @media (max-width: 992px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-card h2 {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+                padding: 0.6rem 0.8rem;
+                text-align: center;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+        <div class="nav-card">
+            <h2>📚 Навигация</h2>
+            <nav class="nav-menu">
+                <a href="#naukometr">Наукометрические БД</a>
+                <a href="#diss">Базы диссертаций</a>
+                <a href="#patents">Патентные БД</a>
+                <a href="#fulltext">Полнотекстовые ИРС</a>
+                <a href="#structure-search">Поиск по структурам</a>
+                <a href="#structure-draw">Рисовалки структур</a>
+                <a href="#med">Медицинские БД</a>
+                            <a href="#ai-tools">ИИ-инструменты</a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <h1 class="floating">Информационные ресурсы</h1>
+        
+        <div class="card animate delay-1" id="naukometr">
+            <h2>Наукометрические БД</h2>
+            
+            <div>
+                <h3><span class="badge badge-primary">Российские ресурсы</span></h3>
+                <ul>
+                    <li><a href="https://elibrary.ru" target="_blank">РИНЦ (eLibrary.ru)</a></li>
+                </ul>
+                
+                <h3><span class="badge badge-secondary">Иностранные ресурсы</span></h3>
+                <ul>
+                    <li><a href="https://scholar.google.com" target="_blank">Google Scholar (Академия)</a></li>
+                    <li><a href="https://www.scopus.com" target="_blank">Scopus</a></li>
+                    <li><a href="https://www.webofscience.com" target="_blank">Web of Science</a></li>
+                    <li><a href="https://www.dimensions.ai" target="_blank">Dimensions</a></li>
+                                    </ul>
+            </div>
+        </div>
+        
+        <div class="card animate delay-2" id="diss">
+            <h2>Базы данных диссертаций</h2>
+            
+            <div>
+                <h3><span class="badge badge-primary">Российские ресурсы</span></h3>
+                <ul>
+                    <li><a href="https://diss.rsl.ru" target="_blank">РГБ</a></li>
+                    <li><a href="https://elibrary.ru" target="_blank">eLibrary.ru</a></li>
+                </ul>
+                
+                <h3><span class="badge badge-secondary">Иностранные ресурсы</span></h3>
+                <ul>
+                    <li><a href="http://www.ndltd.org/" target="_blank">NDLTD (Networked Digital Library of Theses and Dissertations)</a></li>
+                    <li><a href="https://oatd.org/" target="_blank">OATD (Open Access Theses and Dissertations)</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card animate delay-3" id="patents">
+            <h2>Патентные БД</h2>
+            
+            <div>
+                <h3><span class="badge badge-primary">Российские ресурсы</span></h3>
+                <ul>
+                    <li><a href="https://www1.fips.ru" target="_blank">Fips.ru</a></li>
+                </ul>
+                
+                <h3><span class="badge badge-secondary">Иностранные ресурсы</span></h3>
+                <ul>
+                    <li><a href="https://www.uspto.gov" target="_blank">USPTO (США)</a></li>
+                    <li><a href="https://worldwide.espacenet.com" target="_blank">Espacenet (Европа)</a></li>
+                    <li><a href="https://www.wipo.int" target="_blank">WIPO (междунар.)</a></li>
+                    <li><a href="https://patents.google.com" target="_blank">Google Patents</a></li>
+                    <li><a href="https://patentscope.wipo.int" target="_blank">Patentscope</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card animate delay-4">
+            <h2>Рубрикаторы</h2>
+            <ul>
+                <li>УДК – для статей</li>
+                <li>ГРНТИ – для статей</li>
+                <li>МПК – для патентов</li>
+                <li>СПК – для патентов</li>
+            </ul>
+        </div>
+        
+        <div class="card animate delay-5" id="fulltext">
+            <h2>Полнотекстовые ИРС</h2>
+            
+            <div>
+                <h3><span class="badge badge-primary">Российские ресурсы</span></h3>
+                <ul>
+                    <li><a href="https://elibrary.ru" target="_blank">eLibrary</a></li>
+                    <li><a href="https://scholar.google.com" target="_blank">Google Академия</a></li>
+                </ul>
+                
+                <h3><span class="badge badge-secondary">Иностранные ресурсы</span></h3>
+                <ul>
+                    <li><a href="https://www.sciencedirect.com" target="_blank">ScienceDirect</a></li>
+                    <li><a href="https://www.wiley.com" target="_blank">Wiley</a></li>
+                    <li><a href="https://www.springer.com" target="_blank">Springer</a></li>
+                    <li><a href="https://www.nature.com" target="_blank">Nature</a></li>
+                    <li><a href="https://www.rsc.org" target="_blank">Royal Society of Chemistry</a></li>
+                    <li><a href="https://pubs.acs.org" target="_blank">American Chemical Society</a></li>
+                    <li><a href="https://www.jstor.org" target="_blank">JSTOR</a></li>
+                    <li><a href="https://ieeexplore.ieee.org" target="_blank">IEEE Xplore</a></li>
+                    <li><a href="https://www.lens.org" target="_blank">Lens.org (поисковый агрегатор)</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card animate delay-6" id="structure-search">
+            <h2>Поиск по структурам веществ</h2>
+            <ul>
+                <li><a href="https://www.cas.org/products/scifinder" target="_blank">SciFinder</a></li>
+                <li><a href="https://www.reaxys.com" target="_blank">Reaxys</a></li>
+                <li><a href="https://www.chemspider.com" target="_blank">ChemSpider</a></li>
+                <li><a href="https://pubchem.ncbi.nlm.nih.gov" target="_blank">PubChem</a></li>
+            </ul>
+        </div>
+        
+        <div class="card animate delay-7" id="structure-draw">
+            <h2>Рисовалки структур веществ</h2>
+            <ul>
+                <li><a href="https://www.perkinelmer.com/product/chemdraw-chem-office" target="_blank">ChemDraw</a></li>
+                <li><a href="https://www.acdlabs.com/products/chemSketch/" target="_blank">ChemSketch</a></li>
+                <li><a href="https://chemaxon.com/products/marvin" target="_blank">MarvinSketch</a></li>
+                <li><a href="https://www.emolecules.com" target="_blank">E-molecules</a></li>
+                <li><a href="https://molview.org" target="_blank">MolView</a></li>
+            </ul>
+        </div>
+        
+        <div class="card animate delay-7" id="med">
+            <h2>Базы данных по медицинским исследованиям</h2>
+            <ul>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">PubMed</a></li>
+                <li><a href="https://www.cochranelibrary.com" target="_blank">Cochrane Library</a></li>
+                <li><a href="https://clinicaltrials.gov" target="_blank">ClinicalTrials.gov</a></li>
+                <li><a href="https://www.embase.com" target="_blank">EMBASE</a></li>
+                <li><a href="https://medlineplus.gov" target="_blank">MedlinePlus</a></li>
+                <li><a href="https://www.globalhealthlibrary.net" target="_blank">WHO Global Health Library</a></li>
+            </ul>
+        </div>
+    
+<div class="card animate delay-7" id="ai-tools">
+    <h2>Инструменты на базе ИИ</h2>
+    <ul>
+        <li><a href="https://bard.google.com" target="_blank">Google Gemini (ex-Bard)</a></li>
+        <li><a href="https://copilot.microsoft.com/" target="_blank">Microsoft Copilot (встроен в Bing и Word/Excel)</a></li>
+        <li><a href="https://perplexity.ai/" target="_blank">Perplexity – поиск с ИИ-комментариями</a></li>
+        <li><a href="https://www.scite.ai/" target="_blank">Scite.ai – умный анализ научных статей</a></li>
+        <li><a href="https://consensus.app/" target="_blank">Consensus – научный поиск на основе ИИ</a></li>
+    </ul>
+</div>
+
+</main>
+
+    <script>
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
